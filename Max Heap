@@ -1,0 +1,45 @@
+/* the following example demonstrates the logic to convert the contents of an array to a max heap. */
+
+#include<stdio.h>
+int main()
+{
+int x[10],y,lb,ub,ci,ri,g;
+y=0;
+while(y<=9)
+{
+printf("Enter a number : ");
+scanf("%d",&x[y]);
+y++;
+}
+lb=0;
+ub=9;
+y=lb+1;
+while(y<=ub)
+{
+ci=y;
+while(ci>lb)
+{
+ri=(ci-1)/2;
+if(x[ri]<x[ci])
+{
+g=x[ri];
+x[ri]=x[ci];
+x[ci]=g;
+ci=ri;
+}
+else
+{
+break;
+}
+}
+y++;
+}
+y=lb;
+while(y<=ub)
+{
+printf("%d\n",x[y]);
+y++;
+}
+return 0;
+}
+
